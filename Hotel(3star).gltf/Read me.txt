@@ -1,0 +1,23 @@
+This is cartoon 3 star hotel(1 objects)
+
+Models:
+
+Hotel- Polygons: 3534
+Create in Blender 3d v 2.91.2
+
+File formats:
+
+Blender 3d v 3.1.2
+OBJ; MTL
+Fbx
+Gltf
+The preview images were rendered in Blender 3d (Cycles; 1024 Samples)
+
+Materials: 6
+
+Vertices: 5396; Polygons: 3534
+
+
+Created by Tykryk
+
+Thank you:)

@@ -1,0 +1,124 @@
+.contact {
+  background: radial-gradient(circle at 20% 20%, rgba(44, 74, 120, 0.3), transparent 55%), var(--color-bg-alt);
+  padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.contact-info h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  color: var(--color-cream);
+  max-width: 18ch;
+}
+
+.contact-info p {
+  color: var(--color-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 44ch;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--color-cream);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+
+.contact-pill:hover {
+  border-color: var(--color-gold);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.contact-pill svg {
+  color: var(--color-gold);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: rgba(10, 17, 40, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.contact-submit {
+  margin-top: 0.4rem;
+  width: 100%;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

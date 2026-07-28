@@ -1,0 +1,59 @@
+.amenities {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+  padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.section-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.section-heading h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  color: var(--color-cream);
+  max-width: 22ch;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.amenity-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(44, 74, 120, 0.35));
+  color: var(--color-gold-light);
+  font-size: 1.4rem;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  color: var(--color-cream);
+}
+
+.service-card p {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+}
