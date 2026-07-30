@@ -1,0 +1,60 @@
+.hero-photo-marquee {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  left: 48%;
+  display: flex;
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+  padding: 0 clamp(1rem, 3vw, 2.5rem);
+  overflow: hidden;
+  mask-image: linear-gradient(180deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.marquee-col {
+  position: relative;
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+.marquee-col-offset {
+  margin-top: -18%;
+}
+
+.marquee-track {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+  will-change: transform;
+}
+
+.marquee-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.marquee-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.02) brightness(0.94);
+}
+
+@media (max-width: 900px) {
+  .hero-photo-marquee {
+    left: 0;
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-photo-marquee {
+    display: none;
+  }
+}

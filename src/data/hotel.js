@@ -40,22 +40,81 @@ export const SERVICES = [
     description: "Espacio de bienestar y entrenamiento para tu descanso.",
   },
   {
-    icon: "golf",
-    title: "Rafaela Jockey Club",
-    description: "Acceso exclusivo a pileta y cancha de golf del club.",
-  },
-  {
     icon: "coffee",
     title: "Desayuno Americano",
     description: "Buffet completo incluido para empezar bien el día.",
   },
 ];
 
+export const HOTEL_PHOTOS = [
+  { src: "/images/fotohotel.jpg", alt: "Fachada de El Parra Hotel & Suites" },
+  { src: "/images/tour/entrada1.jpg", alt: "Entrada principal" },
+  { src: "/images/tour/auditorio.jpg", alt: "Auditorio" },
+  { src: "/images/tour/pieza1.jpg", alt: "Habitación" },
+  { src: "/images/tour/pieza2.jpg", alt: "Habitación" },
+  { src: "/images/tour/pieza3.jpg", alt: "Habitación" },
+  { src: "/images/tour/sauna.jpg", alt: "Sauna" },
+  { src: "/images/tour/pool.jpg", alt: "Sala de juegos" },
+];
+
+export const TOUR_PINS = [
+  {
+    id: "entrada1",
+    label: "Entrada Principal",
+    floor: "Piso 1",
+    position: [4, -3.2, 3],
+    image: "/images/tour/entrada1.jpg",
+  },
+  {
+    id: "auditorio",
+    label: "Auditorio",
+    floor: "Piso 1",
+    position: [-2, -4.5, 1],
+    image: "/images/tour/auditorio.jpg",
+  },
+  {
+    id: "pieza1",
+    label: "Habitación",
+    floor: "Piso 2",
+    position: [-1.8, -1.1, 2.4],
+    image: "/images/tour/pieza1.jpg",
+  },
+  {
+    id: "pieza2",
+    label: "Habitación",
+    floor: "Piso 2",
+    position: [1.8, -1.1, 2.4],
+    image: "/images/tour/pieza2.jpg",
+  },
+  {
+    id: "pieza3",
+    label: "Habitación",
+    floor: "Piso 3",
+    position: [5.5,1, 2],
+    image: "/images/tour/pieza3.jpg",
+  },
+  {
+    id: "sauna",
+    label: "Sauna",
+    floor: "Piso 3",
+    position: [1.8, 3, 2],
+    image: "/images/tour/sauna.jpg",
+  },
+  {
+    id: "pool",
+    label: "Sala de Juegos",
+    floor: "Piso 1",
+    position: [2, -3.2, -1],
+    image: "/images/tour/pool.jpg",
+  },
+];
+
 export const ROOM_GALLERY = [
-  { seed: "parra-room-deluxe", title: "Habitación Deluxe" },
-  { seed: "parra-room-suite", title: "Suite Ejecutiva" },
-  { seed: "parra-lobby", title: "Lobby & Recepción" },
-  { seed: "parra-pool-jockey", title: "Pileta Jockey Club" },
-  { seed: "parra-gym", title: "Gimnasio" },
-  { seed: "parra-breakfast", title: "Desayuno Americano" },
+  { src: "/images/tour/entrada1.jpg", title: "Entrada Principal" },
+  { src: "/images/tour/auditorio.jpg", title: "Auditorio" },
+  { src: "/images/tour/pieza1.jpg", title: "Habitación" },
+  { src: "/images/tour/sauna.jpg", title: "Sauna" },
+  { src: "/images/tour/pieza2.jpg", title: "Habitación" },
+  { src: "/images/tour/pieza3.jpg", title: "Habitación" },
+  { src: "/images/tour/pool.jpg", title: "Sala de Juegos" },
 ];

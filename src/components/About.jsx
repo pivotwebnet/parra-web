@@ -1,6 +1,11 @@
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { HOTEL } from "../data/hotel";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HOTEL, HOTEL_PHOTOS } from "../data/hotel";
 import "./About.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { value: "3★", label: "Categoría" },
@@ -10,8 +15,47 @@ const stats = [
 ];
 
 export default function About() {
+  const trackRef = useRef(null);
+  const imgRefs = useRef([]);
+  const sectionRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(trackRef.current, {
+        yPercent: 12,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % HOTEL_PHOTOS.length);
+    }, 4200);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    imgRefs.current.forEach((el, i) => {
+      if (!el) return;
+      gsap.to(el, {
+        opacity: i === activeIndex ? 1 : 0,
+        duration: 1.1,
+        ease: "power2.inOut",
+      });
+    });
+  }, [activeIndex]);
+
   return (
-    <section className="about" id="nosotros">
+    <section className="about" id="nosotros" ref={sectionRef}>
       <div className="container about-grid">
         <motion.div
           className="about-visual"
@@ -21,11 +65,21 @@ export default function About() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="about-card card-back" />
-          <img
-            src="https://picsum.photos/seed/parra-facade/900/1100"
-            alt={`Fachada de ${HOTEL.fullName}`}
-            className="about-card card-front"
-          />
+          <div className="about-card card-front">
+            <div className="card-front-track" ref={trackRef}>
+              {HOTEL_PHOTOS.map((photo, i) => (
+                <img
+                  key={photo.src}
+                  ref={(el) => (imgRefs.current[i] = el)}
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="card-front-img"
+                  style={{ opacity: i === 0 ? 1 : 0 }}
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              ))}
+            </div>
+          </div>
           <div className="about-badge">
             <span className="gold-text">{HOTEL.stars}★</span>
             <p>Hotel & Suites</p>

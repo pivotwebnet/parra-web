@@ -18,7 +18,8 @@
   --font-serif: "Playfair Display", "Georgia", serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 
-  --container-w: 1240px;
+  --container-w: 1480px;
+  --container-w-wide: 1760px;
   --radius-md: 14px;
   --radius-lg: 24px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -71,7 +72,13 @@ h1, h2, h3, h4 {
 .container {
   max-width: var(--container-w);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 5vw, 3rem);
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.container-wide {
+  max-width: var(--container-w-wide);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
 }
 
 .eyebrow {
@@ -120,4 +127,65 @@ section {
 ::-webkit-scrollbar-thumb {
   background: var(--color-green-light);
   border-radius: 10px;
+}
+
+/* Tooltips: add class "tt" + data-tooltip="..." to any interactive element.
+   Use "tt tt-bottom" when the element sits near the top of the viewport. */
+.tt {
+  position: relative;
+}
+
+.tt::after,
+.tt::before {
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  z-index: 80;
+}
+
+.tt::after {
+  content: attr(data-tooltip);
+  bottom: calc(100% + 10px);
+  transform: translate(-50%, 4px);
+  background: rgba(6, 10, 22, 0.96);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.55);
+}
+
+.tt::before {
+  content: "";
+  bottom: calc(100% + 6px);
+  transform: translate(-50%, 4px);
+  border: 5px solid transparent;
+  border-top-color: rgba(6, 10, 22, 0.96);
+}
+
+.tt:hover::after,
+.tt:hover::before,
+.tt:focus-visible::after,
+.tt:focus-visible::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.tt-bottom::after {
+  bottom: auto;
+  top: calc(100% + 10px);
+}
+
+.tt-bottom::before {
+  bottom: auto;
+  top: calc(100% + 6px);
+  border-top-color: transparent;
+  border-bottom-color: rgba(6, 10, 22, 0.96);
 }

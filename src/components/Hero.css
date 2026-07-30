@@ -4,39 +4,100 @@
   width: 100%;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: clamp(4rem, 8vw, 6rem);
   background: var(--color-bg);
+}
+
+.hero-bg-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("/images/fotohotel.jpg") center 30% / cover;
+  filter: saturate(0.6) brightness(0.4) blur(1px);
+  opacity: 0.6;
+  transform: scale(1.05);
+}
+
+.hero-glow {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.hero-glow-gold {
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  top: -12%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 70%);
+}
+
+.hero-glow-blue {
+  width: 38vw;
+  height: 38vw;
+  max-width: 520px;
+  max-height: 520px;
+  bottom: -10%;
+  left: -6%;
+  background: radial-gradient(circle, rgba(44, 74, 120, 0.55), transparent 70%);
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 75%);
 }
 
 .hero-vignette {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(6, 10, 22, 0.92) 0%, rgba(10, 17, 40, 0.6) 30%, rgba(10, 17, 40, 0.1) 52%, transparent 68%),
-    linear-gradient(180deg, transparent 85%, var(--color-bg) 100%);
+    linear-gradient(90deg, rgba(6, 10, 22, 0.94) 0%, rgba(10, 17, 40, 0.68) 32%, rgba(10, 17, 40, 0.15) 55%, transparent 72%),
+    linear-gradient(180deg, rgba(6, 10, 22, 0.35) 0%, transparent 22%, transparent 78%, var(--color-bg) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 1.15rem;
+  align-items: center;
+  gap: 2rem;
   padding-top: 6rem;
+  padding-left: clamp(1.25rem, 6vw, 5rem);
+  padding-right: clamp(1.25rem, 5vw, 3.5rem);
   pointer-events: none;
-  margin-right: auto;
 }
 
 .hero-content > * {
   pointer-events: auto;
 }
 
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.15rem;
+  max-width: 640px;
+}
+
 .hero-title {
-  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
   color: var(--color-cream);
   max-width: 14ch;
   text-wrap: balance;
@@ -45,7 +106,7 @@
 .hero-subtitle {
   max-width: 42ch;
   color: var(--color-text-muted);
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
   line-height: 1.65;
 }
 
@@ -95,9 +156,45 @@
   color: var(--color-gold-light);
 }
 
+.hero-stats {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: clamp(3rem, 8vw, 5.5rem);
+  padding-top: 1.75rem;
+  padding-left: clamp(1.25rem, 6vw, 5rem);
+  padding-right: clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.hero-stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  column-gap: clamp(2.5rem, 5vw, 5rem);
+  row-gap: 1rem;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hero-stat strong {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  color: var(--color-gold-light);
+}
+
+.hero-stat span {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
 .scroll-cue {
   position: absolute;
-  bottom: 2.2rem;
+  bottom: 1.4rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -136,8 +233,17 @@
   100% { top: 100%; }
 }
 
+@media (max-width: 900px) {
+  .hero-content {
+    padding-top: 5rem;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-content {
     padding-top: 4.5rem;
+  }
+  .hero-stats-inner {
+    grid-template-columns: repeat(2, auto);
   }
 }

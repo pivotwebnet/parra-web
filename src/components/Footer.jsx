@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <span className="navbar-brand-mark">EP</span>
+          <img src="/images/parralogo.png" alt={HOTEL.fullName} className="footer-logo" />
           <div>
             <p className="footer-brand-name">{HOTEL.fullName}</p>
             <p className="footer-brand-tag">{HOTEL.address}</p>
@@ -25,13 +25,34 @@ export default function Footer() {
         </nav>
 
         <div className="footer-social">
-          <a href={HOTEL.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram">
+          <a
+            className="tt"
+            data-tooltip="Instagram"
+            href={HOTEL.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
             <FaInstagram />
           </a>
-          <a href={HOTEL.tripadvisorUrl} target="_blank" rel="noreferrer" aria-label="Tripadvisor">
+          <a
+            className="tt"
+            data-tooltip="Tripadvisor"
+            href={HOTEL.tripadvisorUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Tripadvisor"
+          >
             <FaTripadvisor />
           </a>
-          <a href={HOTEL.website} target="_blank" rel="noreferrer" aria-label="Sitio web">
+          <a
+            className="tt"
+            data-tooltip="Sitio web"
+            href={HOTEL.website}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Sitio web"
+          >
             <FaGlobe />
           </a>
         </div>
@@ -39,7 +60,6 @@ export default function Footer() {
 
       <div className="footer-bottom container">
         <p>© {new Date().getFullYear()} {HOTEL.fullName}. Todos los derechos reservados.</p>
-        <p>{HOTEL.phones.join(" · ")}</p>
       </div>
     </footer>
   );

@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { FaLocationDot, FaPhone, FaClock } from "react-icons/fa6";
+import { useMagnetic } from "../hooks/useMagnetic";
 import { HOTEL } from "../data/hotel";
 import "./Location.css";
 
 export default function Location() {
+  const directionsRef = useMagnetic(10);
+
   return (
     <section className="location" id="ubicacion">
       <div className="container location-grid">
@@ -40,7 +43,9 @@ export default function Location() {
           </ul>
 
           <a
-            className="btn btn-gold"
+            ref={directionsRef}
+            className="btn btn-gold tt"
+            data-tooltip="Abrir en Google Maps"
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
               HOTEL.address
             )}`}

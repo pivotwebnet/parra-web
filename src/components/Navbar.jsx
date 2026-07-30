@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useMagnetic } from "../hooks/useMagnetic";
 import { HOTEL } from "../data/hotel";
 import "./Navbar.css";
 
@@ -8,6 +9,7 @@ const LINKS = [
   { href: "#nosotros", label: "Nosotros" },
   { href: "#servicios", label: "Servicios" },
   { href: "#galeria", label: "Galería" },
+  { href: "#recorrido", label: "Recorrido 3D" },
   { href: "#ubicacion", label: "Ubicación" },
   { href: "#contacto", label: "Contacto" },
 ];
@@ -15,6 +17,7 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const ctaRef = useMagnetic(10);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -32,8 +35,11 @@ export default function Navbar() {
     >
       <div className="navbar-inner container">
         <a href="#inicio" className="navbar-brand">
-          <span className="navbar-brand-mark">EP</span>
-          <span className="navbar-brand-text">{HOTEL.name}</span>
+          <img
+            src="/images/parralogo.png"
+            alt={HOTEL.fullName}
+            className="navbar-logo"
+          />
         </a>
 
         <nav className="navbar-links">
@@ -45,7 +51,9 @@ export default function Navbar() {
         </nav>
 
         <a
-          className="navbar-cta"
+          ref={ctaRef}
+          className="navbar-cta tt tt-bottom"
+          data-tooltip="Escribinos por WhatsApp"
           href={`https://wa.me/${HOTEL.whatsappNumber}`}
           target="_blank"
           rel="noreferrer"
@@ -54,8 +62,9 @@ export default function Navbar() {
         </a>
 
         <button
-          className={`navbar-burger ${open ? "is-open" : ""}`}
-          aria-label="Abrir menú"
+          className={`navbar-burger tt tt-bottom ${open ? "is-open" : ""}`}
+          data-tooltip={open ? "Cerrar menú" : "Abrir menú"}
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
           onClick={() => setOpen((o) => !o)}
         >
           <span />

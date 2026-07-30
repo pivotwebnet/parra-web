@@ -29,24 +29,10 @@
   gap: 0.7rem;
 }
 
-.navbar-brand-mark {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-gold-dim), var(--color-gold));
-  color: var(--color-text-dark);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.navbar-brand-text {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--color-cream);
-  letter-spacing: 0.02em;
+.navbar-logo {
+  height: 42px;
+  width: auto;
+  display: block;
 }
 
 .navbar-links {

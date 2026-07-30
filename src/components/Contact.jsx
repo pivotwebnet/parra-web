@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaPhone, FaCalendarCheck } from "react-icons/fa6";
+import { useMagnetic } from "../hooks/useMagnetic";
 import { HOTEL } from "../data/hotel";
 import "./Contact.css";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", checkin: "", guests: "1", message: "" });
+  const [form, setForm] = useState({ name: "", checkin: "", checkinTime: "", guests: "1", message: "" });
+  const whatsappRef = useMagnetic(10);
+  const callRef = useMagnetic(10);
+  const bookingRef = useMagnetic(10);
+  const submitRef = useMagnetic(8);
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const buildWhatsappUrl = () => {
     const lines = [
       `Hola! Soy ${form.name || "un/a viajero/a"}.`,
-      form.checkin && `Fecha de llegada aproximada: ${form.checkin}.`,
+      form.checkin &&
+        `Fecha de llegada aproximada: ${form.checkin}${
+          form.checkinTime ? ` a las ${form.checkinTime} hs` : ""
+        }.`,
       `Cantidad de huéspedes: ${form.guests}.`,
       form.message && `Mensaje: ${form.message}`,
       "Quiero consultar disponibilidad en El Parra Hotel & Suites.",
@@ -49,18 +57,27 @@ export default function Contact() {
 
           <div className="contact-buttons">
             <a
-              className="contact-pill"
+              ref={whatsappRef}
+              className="contact-pill tt"
+              data-tooltip="Escribinos por WhatsApp"
               href={`https://wa.me/${HOTEL.whatsappNumber}`}
               target="_blank"
               rel="noreferrer"
             >
               <FaWhatsapp /> WhatsApp
             </a>
-            <a className="contact-pill" href={`tel:${HOTEL.phones[0].replace(/\s+/g, "")}`}>
+            <a
+              ref={callRef}
+              className="contact-pill tt"
+              data-tooltip="Llamar al hotel"
+              href={`tel:${HOTEL.phones[0].replace(/\s+/g, "")}`}
+            >
               <FaPhone /> Llamar
             </a>
             <a
-              className="contact-pill"
+              ref={bookingRef}
+              className="contact-pill tt"
+              data-tooltip="Ir a Booking.com"
               href={HOTEL.bookingUrl}
               target="_blank"
               rel="noreferrer"
@@ -101,10 +118,20 @@ export default function Contact() {
             </label>
           </div>
 
-          <label>
-            Fecha de llegada
-            <input type="date" value={form.checkin} onChange={update("checkin")} />
-          </label>
+          <div className="form-row form-row-even">
+            <label>
+              Fecha de llegada
+              <input type="date" value={form.checkin} onChange={update("checkin")} />
+            </label>
+            <label>
+              Hora aproximada
+              <input
+                type="time"
+                value={form.checkinTime}
+                onChange={update("checkinTime")}
+              />
+            </label>
+          </div>
 
           <label>
             Mensaje
@@ -116,7 +143,12 @@ export default function Contact() {
             />
           </label>
 
-          <button type="submit" className="btn btn-gold contact-submit">
+          <button
+            ref={submitRef}
+            type="submit"
+            className="btn btn-gold contact-submit tt"
+            data-tooltip="Enviar consulta por WhatsApp"
+          >
             Enviar consulta por WhatsApp
           </button>
         </motion.form>

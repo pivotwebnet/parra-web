@@ -1,0 +1,84 @@
+.quick-booking-wrap {
+  position: relative;
+  z-index: 5;
+  margin-top: -3.25rem;
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.quick-booking {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  padding: 1.4rem clamp(1.4rem, 3vw, 2rem);
+  border-radius: var(--radius-lg);
+  background: rgba(14, 27, 58, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.65);
+}
+
+.quick-booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1 1 160px;
+  min-width: 140px;
+}
+
+.quick-booking-field span {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.quick-booking-field input,
+.quick-booking-field select {
+  background: rgba(10, 17, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  transition: border-color 0.3s;
+}
+
+.quick-booking-field input:focus,
+.quick-booking-field select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.quick-booking-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  flex: 1 1 220px;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  background: linear-gradient(120deg, var(--color-gold-dim), var(--color-gold), var(--color-gold-light));
+  color: var(--color-text-dark);
+  box-shadow: 0 10px 30px -8px rgba(6, 10, 22, 0.5);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+
+.quick-booking-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px -8px rgba(6, 10, 22, 0.6);
+}
+
+@media (max-width: 700px) {
+  .quick-booking {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .quick-booking-field,
+  .quick-booking-submit {
+    flex: 1 1 auto;
+  }
+}

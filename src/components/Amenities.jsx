@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  FaWifi,
-  FaClock,
-  FaCar,
-  FaDumbbell,
-  FaGolfBall,
-  FaMugHot,
-} from "react-icons/fa";
+import { FaWifi, FaClock, FaCar, FaDumbbell, FaMugHot } from "react-icons/fa";
 import { SERVICES } from "../data/hotel";
 import ServiceCard from "./ServiceCard";
 import "./Amenities.css";
@@ -16,14 +9,13 @@ const ICONS = {
   clock: FaClock,
   car: FaCar,
   dumbbell: FaDumbbell,
-  golf: FaGolfBall,
   coffee: FaMugHot,
 };
 
 export default function Amenities() {
   return (
     <section className="amenities" id="servicios">
-      <div className="container">
+      <div className="container-wide">
         <div className="section-heading">
           <motion.span
             className="eyebrow"

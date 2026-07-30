@@ -19,6 +19,12 @@
   gap: 0.9rem;
 }
 
+.footer-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
 .footer-brand-name {
   font-family: var(--font-serif);
   color: var(--color-cream);

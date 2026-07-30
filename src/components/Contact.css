@@ -75,6 +75,10 @@
   gap: 1rem;
 }
 
+.form-row-even {
+  grid-template-columns: 1fr 1fr;
+}
+
 .contact-form label {
   display: flex;
   flex-direction: column;
