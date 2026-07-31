@@ -4,7 +4,7 @@ import QuickBooking from "./components/QuickBooking";
 import About from "./components/About";
 import Amenities from "./components/Amenities";
 import Gallery from "./components/Gallery";
-import HotelTour from "./components/HotelTour";
+import HotelTourLazy from "./components/HotelTourLazy";
 import Location from "./components/Location";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -20,7 +20,7 @@ function App() {
         <About />
         <Amenities />
         <Gallery />
-        <HotelTour />
+        <HotelTourLazy />
         <Location />
         <Contact />
       </main>

@@ -36,6 +36,13 @@ export default function QuickBooking() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
       >
+        <div className="quick-booking-heading">
+          <span className="quick-booking-eyebrow">Reservá en segundos</span>
+          <h3>
+            Consultá <span className="gold-text">disponibilidad</span> ahora
+          </h3>
+        </div>
+
         <label className="quick-booking-field">
           <span>Fecha de llegada</span>
           <input type="date" value={form.checkin} onChange={update("checkin")} />

@@ -19,14 +19,21 @@
 }
 
 .amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.75rem;
 }
 
+.amenities-grid .service-card {
+  flex: 1 1 calc((100% - 1.75rem * 2) / 3);
+  max-width: calc((100% - 1.75rem * 2) / 3);
+}
+
 @media (min-width: 1300px) {
-  .amenities-grid {
-    grid-template-columns: repeat(6, 1fr);
+  .amenities-grid .service-card {
+    flex-basis: calc((100% - 1.75rem * 4) / 5);
+    max-width: calc((100% - 1.75rem * 4) / 5);
   }
 }
 
@@ -39,27 +46,46 @@
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(44, 74, 120, 0.35));
   color: var(--color-gold-light);
   font-size: 1.4rem;
+  transition: background 0.35s var(--ease-out), color 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+
+.service-card:hover .amenity-icon {
+  background: linear-gradient(135deg, var(--color-gold-dim), var(--color-gold), var(--color-gold-light));
+  color: var(--color-text-dark);
+  transform: scale(1.08);
 }
 
 .service-card h3 {
   font-size: 1.2rem;
   color: var(--color-cream);
+  transition: color 0.35s var(--ease-out);
+}
+
+.service-card:hover h3 {
+  color: var(--color-gold-light);
 }
 
 .service-card p {
   color: var(--color-text-muted);
   font-size: 0.92rem;
   line-height: 1.6;
+  transition: color 0.35s var(--ease-out);
+}
+
+.service-card:hover p {
+  color: var(--color-cream);
 }
 
 @media (max-width: 900px) {
-  .amenities-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .amenities-grid .service-card {
+    flex-basis: calc((100% - 1.75rem) / 2);
+    max-width: calc((100% - 1.75rem) / 2);
   }
 }
 
 @media (max-width: 560px) {
-  .amenities-grid {
-    grid-template-columns: 1fr;
+  .amenities-grid .service-card {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }

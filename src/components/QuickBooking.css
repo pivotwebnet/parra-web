@@ -18,6 +18,30 @@
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.65);
 }
 
+.quick-booking-heading {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.3rem;
+}
+
+.quick-booking-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.quick-booking-heading h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  color: var(--color-cream);
+}
+
 .quick-booking-field {
   display: flex;
   flex-direction: column;
