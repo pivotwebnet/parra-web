@@ -1,6 +1,7 @@
 import { FaInstagram, FaGlobe } from "react-icons/fa6";
 import { FaTripadvisor } from "react-icons/fa";
 import { HOTEL } from "../data/hotel";
+import { asset } from "../utils/assetPath";
 import "./Footer.css";
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <img src="/images/parralogo.png" alt={HOTEL.fullName} className="footer-logo" />
+          <img src={asset("/images/parralogo.png")} alt={HOTEL.fullName} className="footer-logo" />
           <div>
             <p className="footer-brand-name">{HOTEL.fullName}</p>
             <p className="footer-brand-tag">{HOTEL.address}</p>

@@ -1,3 +1,5 @@
+import { asset } from "../utils/assetPath";
+
 export const HOTEL = {
   name: "El Parra",
   fullName: "El Parra Hotel & Suites",
@@ -47,14 +49,14 @@ export const SERVICES = [
 ];
 
 export const HOTEL_PHOTOS = [
-  { src: "/images/fotohotel.webp", alt: "Fachada de El Parra Hotel & Suites" },
-  { src: "/images/tour/entrada1.webp", alt: "Entrada principal" },
-  { src: "/images/tour/auditorio.webp", alt: "Auditorio" },
-  { src: "/images/tour/pieza1.webp", alt: "Habitación" },
-  { src: "/images/tour/pieza2.webp", alt: "Habitación" },
-  { src: "/images/tour/pieza3.webp", alt: "Habitación" },
-  { src: "/images/tour/sauna.webp", alt: "Sauna" },
-  { src: "/images/tour/pool.webp", alt: "Sala de juegos" },
+  { src: asset("/images/fotohotel.webp"), alt: "Fachada de El Parra Hotel & Suites" },
+  { src: asset("/images/tour/entrada1.webp"), alt: "Entrada principal" },
+  { src: asset("/images/tour/auditorio.webp"), alt: "Auditorio" },
+  { src: asset("/images/tour/pieza1.webp"), alt: "Habitación" },
+  { src: asset("/images/tour/pieza2.webp"), alt: "Habitación" },
+  { src: asset("/images/tour/pieza3.webp"), alt: "Habitación" },
+  { src: asset("/images/tour/sauna.webp"), alt: "Sauna" },
+  { src: asset("/images/tour/pool.webp"), alt: "Sala de juegos" },
 ];
 
 export const TOUR_PINS = [
@@ -63,58 +65,58 @@ export const TOUR_PINS = [
     label: "Entrada Principal",
     floor: "Piso 1",
     position: [4, -3.2, 3],
-    image: "/images/tour/entrada1.webp",
+    image: asset("/images/tour/entrada1.webp"),
   },
   {
     id: "auditorio",
     label: "Auditorio",
     floor: "Piso 1",
     position: [-2, -4.5, 1],
-    image: "/images/tour/auditorio.webp",
+    image: asset("/images/tour/auditorio.webp"),
   },
   {
     id: "pieza1",
     label: "Habitación",
     floor: "Piso 2",
     position: [-1.8, -1.1, 2.4],
-    image: "/images/tour/pieza1.webp",
+    image: asset("/images/tour/pieza1.webp"),
   },
   {
     id: "pieza2",
     label: "Habitación",
     floor: "Piso 2",
     position: [1.8, -1.1, 2.4],
-    image: "/images/tour/pieza2.webp",
+    image: asset("/images/tour/pieza2.webp"),
   },
   {
     id: "pieza3",
     label: "Habitación",
     floor: "Piso 3",
     position: [5.5,1, 2],
-    image: "/images/tour/pieza3.webp",
+    image: asset("/images/tour/pieza3.webp"),
   },
   {
     id: "sauna",
     label: "Sauna",
     floor: "Piso 3",
     position: [1.8, 3, 2],
-    image: "/images/tour/sauna.webp",
+    image: asset("/images/tour/sauna.webp"),
   },
   {
     id: "pool",
     label: "Sala de Juegos",
     floor: "Piso 1",
     position: [2, -3.2, -1],
-    image: "/images/tour/pool.webp",
+    image: asset("/images/tour/pool.webp"),
   },
 ];
 
 export const ROOM_GALLERY = [
-  { src: "/images/tour/entrada1.webp", title: "Entrada Principal" },
-  { src: "/images/tour/auditorio.webp", title: "Auditorio" },
-  { src: "/images/tour/pieza1.webp", title: "Habitación" },
-  { src: "/images/tour/sauna.webp", title: "Sauna" },
-  { src: "/images/tour/pieza2.webp", title: "Habitación" },
-  { src: "/images/tour/pieza3.webp", title: "Habitación" },
-  { src: "/images/tour/pool.webp", title: "Sala de Juegos" },
+  { src: asset("/images/tour/entrada1.webp"), title: "Entrada Principal" },
+  { src: asset("/images/tour/auditorio.webp"), title: "Auditorio" },
+  { src: asset("/images/tour/pieza1.webp"), title: "Habitación" },
+  { src: asset("/images/tour/sauna.webp"), title: "Sauna" },
+  { src: asset("/images/tour/pieza2.webp"), title: "Habitación" },
+  { src: asset("/images/tour/pieza3.webp"), title: "Habitación" },
+  { src: asset("/images/tour/pool.webp"), title: "Sala de Juegos" },
 ];

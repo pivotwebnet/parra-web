@@ -14,7 +14,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("/images/fotohotel.webp") center 30% / cover;
+  background: var(--hero-bg-image) center 30% / cover;
   filter: saturate(0.6) brightness(0.4) blur(1px);
   opacity: 0.6;
   transform: scale(1.05);

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useMagnetic } from "../hooks/useMagnetic";
 import { HOTEL } from "../data/hotel";
+import { asset } from "../utils/assetPath";
 import "./Navbar.css";
 
 const LINKS = [
@@ -36,7 +37,7 @@ export default function Navbar() {
       <div className="navbar-inner container">
         <a href="#inicio" className="navbar-brand">
           <img
-            src="/images/parralogo.png"
+            src={asset("/images/parralogo.png")}
             alt={HOTEL.fullName}
             className="navbar-logo"
           />

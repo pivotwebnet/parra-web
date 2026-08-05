@@ -3,6 +3,7 @@ import HeroPhotoMarquee from "./HeroPhotoMarquee";
 import HeroStats from "./HeroStats";
 import { useMagnetic } from "../hooks/useMagnetic";
 import { HOTEL } from "../data/hotel";
+import { asset } from "../utils/assetPath";
 import "./Hero.css";
 
 const slideRight = {
@@ -20,7 +21,10 @@ export default function Hero() {
 
   return (
     <section className="hero" id="inicio">
-      <div className="hero-bg-photo" />
+      <div
+        className="hero-bg-photo"
+        style={{ "--hero-bg-image": `url(${asset("/images/fotohotel.webp")})` }}
+      />
       <div className="hero-glow hero-glow-gold" />
       <div className="hero-glow hero-glow-blue" />
       <div className="hero-grid-pattern" />

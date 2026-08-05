@@ -1,6 +1,7 @@
 import { useGLTF } from "@react-three/drei";
+import { asset } from "../utils/assetPath";
 
-const MODEL_PATH = "/models/hotel-3star.glb";
+const MODEL_PATH = asset("/models/hotel-3star.glb");
 
 // Measured from the source file: bounding size ~15.5 x 27.5 x 18.2,
 // footprint centered at x=1.26 z=-0.005, base at y=0.02.
